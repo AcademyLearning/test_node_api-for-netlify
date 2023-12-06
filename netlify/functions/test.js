@@ -19,7 +19,7 @@ router.get("/testdbcon", async (req, res) => {
     const result = await testDatabaseConnection();
 
     // Send the data returned by connectToDB function
-    res.status(200).json({ message: "API endpoint success", result });
+    res.status(200).json({ message: "API endpoint success =>", result });
   } catch (error) {
     res
       .status(500)

@@ -52,6 +52,7 @@ async function testDatabaseConnection() {
         console.log(randomDocument);
         if (randomDocument.length > 0) {
           console.log("Database collection connection Succesfull");
+          return(randomDocument);
         } else {
           console.log("Error during database's collection connection::");
         }
