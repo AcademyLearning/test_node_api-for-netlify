@@ -2,9 +2,6 @@ import express, { Router } from "express";
 import serverless from "serverless-http";
 
 const {
-  connectToDB,
-  getStuInfoCollection,
-  closeDB,
   testDatabaseConnection,
 } = require("../utils/db");
 
