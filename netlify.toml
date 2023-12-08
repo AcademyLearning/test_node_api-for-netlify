@@ -2,13 +2,18 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
 
+[build]
+  functions = "functions"
+
 [[headers]]
   # Enable CORS for all functions
-  for = "/*.js"
+  for = "/.netlify/functions/*"
   [headers.values]
     Access-Control-Allow-Origin = ["http://localhost:5173"]
     Access-Control-Allow-Headers = ["Content-Type"]
     Access-Control-Allow-Methods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+
+
 
 [[redirects]]
   force = true
@@ -21,3 +26,5 @@
   from = "/*"  # Updated rule for the root path
   status = 200
   to = "/.netlify/functions/api/:splat"
+
+
