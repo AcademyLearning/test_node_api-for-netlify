@@ -13,9 +13,5 @@
   from = "/*"  # Updated rule for the root path
   status = 200
   to = "/.netlify/functions/api/:splat"
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = ["http://localhost:5173"]
 
 
