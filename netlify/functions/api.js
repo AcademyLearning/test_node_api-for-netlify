@@ -2,8 +2,12 @@ import express, { Router } from "express";
 import serverless from "serverless-http";
 
 const api = express();
-
 const router = Router();
+const cors = require('cors')
+
+api.use(cors({
+    origin:"http://localhost:5173"
+}));
 
 
 router.get("/", (req, res) => {

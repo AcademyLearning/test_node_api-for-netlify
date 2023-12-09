@@ -6,8 +6,14 @@ const {
 } = require("../utils/db");
 
 const api = express();
-
 const router = Router();
+
+const cors = require('cors')
+
+api.use(cors({
+    origin:"http://localhost:5173"
+}));
+
 
 // Define a route for the testdbcon endpoint
 router.get("/testdbcon", async (req, res) => {
