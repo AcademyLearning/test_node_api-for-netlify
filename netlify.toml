@@ -2,18 +2,6 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
 
-
-
-[[headers]]
-  # Enable CORS for all functions
-  for = "/.netlify/functions/*"
-  [headers.values]
-    Access-Control-Allow-Origin = ["http://localhost:5173"]
-    Access-Control-Allow-Headers = ["Content-Type"]
-    Access-Control-Allow-Methods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-
-
-
 [[redirects]]
   force = true
   from = "/test/*"  # Updated rule for the "test" function
