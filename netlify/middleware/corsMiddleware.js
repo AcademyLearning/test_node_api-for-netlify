@@ -4,7 +4,7 @@ const cors = require("cors");
 // List of allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://vtincoursecertificatevalidationfront.netlify.app/",
+  "https://vtincoursecertificatevalidationfront.netlify.app",
 ];
 
 const corsOptions = {
