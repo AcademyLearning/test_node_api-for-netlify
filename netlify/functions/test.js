@@ -1,19 +1,22 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
 
-const {
-  testDatabaseConnection,
-} = require("../utils/db");
+const { testDatabaseConnection } = require("../utils/db");
+const corsMiddleware = require("../middleware/corsMiddleware");
 
 const api = express();
 const router = Router();
 
-const cors = require('cors')
+// Apply the CORS middleware globally
+api.use(corsMiddleware);
 
-api.use(cors({
-    origin:"http://localhost:5173"
-}));
+// Allowed origins in same file
 
+// const cors = require('cors')
+
+// api.use(cors({
+//     origin:"http://localhost:5173"
+// }));
 
 // Define a route for the testdbcon endpoint
 router.get("/testdbcon", async (req, res) => {

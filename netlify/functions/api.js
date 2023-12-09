@@ -1,24 +1,24 @@
-import express, { Router } from 'express';
-import serverless from 'serverless-http';
+import express, { Router } from "express";
+import serverless from "serverless-http";
+const corsMiddleware = require("../middleware/corsMiddleware");
 
 const api = express();
 const router = Router();
-const cors = require('cors')
+// const cors = require("cors");
 
-api.use(cors({
-    origin:"http://localhost:5173"
-}));
+// Apply the CORS middleware globally
+api.use(corsMiddleware);
 
-router.get('/', (req, res) => {
-  res.send('Hello User. API started => Try : /hello or /data');
+router.get("/", (req, res) => {
+  res.send("Hello User. API started => Try : /hello or /data");
 });
 
-router.get('/hello', (req, res) => res.send('Hello User!'));
+router.get("/hello", (req, res) => res.send("Hello User!"));
 
-router.get('/data', (req, res) => {
-  res.json({ message: 'This is a sample API route' });
+router.get("/data", (req, res) => {
+  res.json({ message: "This is a sample API route" });
 });
 
-api.use('/', router);
+api.use("/", router);
 
 export const handler = serverless(api);
