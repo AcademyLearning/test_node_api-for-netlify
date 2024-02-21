@@ -7,12 +7,12 @@ This repository contains instructions and code to create a Node/Express API for 
 1. Install necessary packages:
    
    ```bash
-   npm i express serverless-http @netlify/functions @types/express
+   npm i express serverless-http @netlify/functions
    ```
 
 2. Create the API file:
    
-   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.ts` and add the following code:
+   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.js` and add the following code:
 
    ```typescript
    import express, { Router } from "express";
