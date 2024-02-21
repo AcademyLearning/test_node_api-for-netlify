@@ -1,9 +1,3 @@
-# test_node_api-for-netlify
-node.js and express.js testing api for netlify demo only
-
-# Live Preview : https://testnodeapifornetlify.netlify.app/
-
-
 # Node/Express API for Netlify
 
 This repository contains instructions and code to create a Node/Express API for deployment on Netlify.
@@ -18,7 +12,7 @@ This repository contains instructions and code to create a Node/Express API for 
 
 2. Create the API file:
    
-   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.ts` and add the following code:
+   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.js` and add the following code:
 
    ```typescript
    import express, { Router } from "express";
@@ -70,5 +64,8 @@ This repository contains instructions and code to create a Node/Express API for 
 - `serverless-http` is used to wrap the Express app for compatibility with Netlify Functions.
 - The Netlify TOML file configures redirection of API routes to the appropriate Netlify function.
 - Netlify CLI is required to locally develop and test the project.
+
+
+## Live Preview : https://testnodeapifornetlify.netlify.app/
 
 Happy coding! 🚀
