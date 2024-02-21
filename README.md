@@ -12,7 +12,7 @@ This repository contains instructions and code to create a Node/Express API for 
 
 2. Create the API file:
    
-   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.js` and add the following code:
+   Navigate to `YOUR_BASE_DIRECTORY/netlify/functions/api.ts` and add the following code:
 
    ```typescript
    import express, { Router } from "express";
@@ -57,6 +57,8 @@ This repository contains instructions and code to create a Node/Express API for 
    ```bash
    netlify dev
    ```
+
+For more detailed information, refer to the [official Netlify documentation for integrating Express.js](https://docs.netlify.com/integrations/frameworks/express/).
 
 ## Notes:
 
