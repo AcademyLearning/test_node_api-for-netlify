@@ -1,4 +1,6 @@
 const { MongoClient } = require("mongodb");
+const Student = require('../db/models/studentInfo');
+
 
 // const uri = "mongodb://0.0.0.0:27017";
 // const dbName = "vtinCertificates";
@@ -70,9 +72,26 @@ async function testDatabaseConnection() {
   }
 }
 
+async function saveStudentData(data) {
+  try {
+    // Create a new student instance using the provided data
+    const student = new Student(data);
+    // Save the student data to the database
+    const savedStudent = await student.save();
+    console.log("Student data saved successfully:", savedStudent);
+    return savedStudent; // Return the saved student data if needed
+  } catch (error) {
+    console.error("Error saving student data:", error);
+    throw error;
+  }
+}
+
+
+
 module.exports = {
   connectToDB,
   getStuInfoCollection,
   closeDB,
   testDatabaseConnection,
+  saveStudentData,
 };
