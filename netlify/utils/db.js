@@ -97,7 +97,7 @@ async function saveStudentData(data) {
     if (db) {
       try {
         // Get the student collection
-        const studentCollection = getStudentCollection();
+        const studentCollection = getStuInfoCollection();
 
         // Create a new student instance using the provided data
         const student = new Student(data);
