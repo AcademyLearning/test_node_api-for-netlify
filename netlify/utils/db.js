@@ -72,16 +72,54 @@ async function testDatabaseConnection() {
   }
 }
 
+// async function saveStudentData(data) {
+//   try {
+//     console.log("saveStudentData func get called")
+//     console.log("Data from saveStudenData func : " , data)
+//     // Create a new student instance using the provided data
+//     const student = new Student(data);
+//     console.log("student schema called" , student)
+//     // Save the student data to the database
+//     const savedStudent = await student.save();
+//     console.log("Student data saved successfully:", savedStudent);
+//     return savedStudent; // Return the saved student data if needed
+//   } catch (error) {
+//     console.error("Error saving student data:", error);
+//     throw error;
+//   }
+// }
+
 async function saveStudentData(data) {
   try {
-    // Create a new student instance using the provided data
-    const student = new Student(data);
-    // Save the student data to the database
-    const savedStudent = await student.save();
-    console.log("Student data saved successfully:", savedStudent);
-    return savedStudent; // Return the saved student data if needed
+    // Connect to the database
+    const db = await connectToDB();
+
+    if (db) {
+      try {
+        // Get the student collection
+        const studentCollection = getStudentCollection();
+
+        // Create a new student instance using the provided data
+        const student = new Student(data);
+
+        // Save the student data to the database
+        const savedStudent = await studentCollection.insertOne(student);
+
+        console.log("Student data saved successfully:", savedStudent);
+
+        return savedStudent; // Return the saved student data if needed
+      } catch (error) {
+        console.error("Error saving student data:", error);
+        throw error;
+      } finally {
+        // Close the database connection
+        await closeDB();
+      }
+    } else {
+      console.log("Unable to connect to the database.");
+    }
   } catch (error) {
-    console.error("Error saving student data:", error);
+    console.error("Error during database connection:", error);
     throw error;
   }
 }

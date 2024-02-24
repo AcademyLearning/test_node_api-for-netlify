@@ -10,6 +10,9 @@ import { saveStudentData } from "../utils/db";
 const api = express();
 const router = Router();
 
+router.use(express.json()); // Adding express.json() middleware here
+
+
 router.get("/", (req, res) => res.send("Hello from studentData function / route"));
 
 // Define a route to save student data
@@ -17,7 +20,8 @@ router.post("/saveStudentData", async (req, res) => {
   try {
     const { stu_id, studentName, courseName, completionDate, certificateLink } = req.body;
 
-    console.log(req.body)
+    console.log("data recieved")
+    console.log(stu_id , studentName , courseName , completionDate , certificateLink)
 
     // Ensure all required fields are provided
     if (!stu_id || !studentName || !courseName || !completionDate || !certificateLink) {
@@ -42,7 +46,8 @@ router.post("/saveStudentData", async (req, res) => {
 });
 
 router.post("/saveTest", async (req, res) => {
-  console.log(req.body)
+  console.log("data recieved")
+  res.send(req.body)
 });
 
 api.use("/studentData/", router);
